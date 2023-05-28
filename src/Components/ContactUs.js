@@ -7,18 +7,18 @@ import {
   } from 'antd';
 import axios from "axios";
 import { useState } from "react";
+
+axios.defaults.withCredentials = true
+
 const ContactUs =()=>{
     const { TextArea } = Input;
     const [data,setData]=useState({})
-    const SendData=()=>{
-    
-      fetch("https://saber.arabia-it.net/api/v1/technical-support",{
-        method:"POST",
-        headers:{
-          Authorization:"Bearer 3|L2LPakn7n1Fl9pTMsbT8DRV0GUa8AT3wSNOYj5Ts",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data)
+    async function SendData () {
+      await axios.get("http://saber.test/sanctum/csrf-cookie")
+      await axios.post("http://saber.test/api/v1/technical-support", JSON.stringify(data), {
+        headers: {
+          'Authorization': 'Bearer 7|9dvqZ4WwmTVVdY5QL0Q0WBWXrsEjRImNjmRT0CpF'
+        }
       })
     }
     return(
