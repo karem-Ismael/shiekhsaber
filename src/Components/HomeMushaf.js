@@ -1,10 +1,37 @@
 import { Col, Row, Select } from "antd"
+import axios from "axios"
+import { useEffect, useState } from "react"
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
 
 const mushafStyle = {
     color: "#474747",
     padding:"50px 0px"
 }
 const HomeMushaf = () => {
+    const[categories,setCategories]=useState()
+    useEffect(()=>{
+        axios.get("https://saber.arabia-it.net/api/v1/categories",
+        {
+            headers:{
+                Authorization:"Bearer 5|bV0AD7zr7K68ewmFxfwzgOwAMjKEZTzrwhMq7cmN"
+            }
+        }
+        ).then((res)=>
+        {
+            const data=res.data.data.map((opt)=>opt.sub_categories.map(opt2=>({
+                name:opt2.name,
+                groupedname:opt.name,
+                id:opt2.uid
+            })))
+            console.log(data.flat(),"data")
+            setCategories(data.flat())
+            console.log(res,"res")
+        }
+        )
+        // const response =await fetch("https://saber.arabia-it.net/api/v1/categories")
+        // const data =await response.json()
+    },[])
     return (
         <div className="container" style={mushafStyle}>
 
@@ -21,7 +48,7 @@ const HomeMushaf = () => {
                 <span style={{alignSelf:"center"}}> 
                     اختر الرواية
                 </span>
-                <Select
+                {/* <Select
                 className="select-story"
                     size='large'
                     style={{ minWidth: "200px" }}
@@ -35,7 +62,15 @@ const HomeMushaf = () => {
 
 
                     options={[]}
-                />
+                /> */}
+                 <Autocomplete
+      id="grouped-demo"
+      options={categories}
+      groupBy={(option) => option.groupedname}
+      getOptionLabel={(option,index) =>option.name}
+      sx={{ width: 300 }}
+      renderInput={(params) => <TextField {...params} label=""  variant="standard"/>}
+    />
             </div>
             <Row  classNmae="mt-2" style={{gap:"10px",marginTop:"10px"}}>
                 <Col>

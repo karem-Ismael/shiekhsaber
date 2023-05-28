@@ -327,7 +327,12 @@ ul{
 .ant-tabs-nav-wrap{
   border-bottom: 1px solid #919191 !important;
 }
-
+.css-aqpgxn-MuiFormLabel-root-MuiInputLabel-root {
+  right: 0 !important;
+}
+.css-1q60rmi-MuiAutocomplete-endAdornment{
+  left: 0 !important;
+}
 .ant-tabs-tab-btn{
   color:#919191 !important;
 }

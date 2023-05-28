@@ -3,11 +3,22 @@ import {
     Form,
     Input,
   } from 'antd';
-  import { useState } from 'react';
+import axios from 'axios';
+  import { useEffect, useState } from 'react';
   const TechnicalSupport = () => {
     const [componentSize, setComponentSize] = useState('large');
     const { TextArea } = Input;
-
+    const [socialLinks,setSocialLinks]=useState()
+useEffect(()=>{
+ 
+  axios.get("https://saber.arabia-it.net/api/v1/social-links",
+  {
+      headers:{
+          Authorization:"Bearer 5|bV0AD7zr7K68ewmFxfwzgOwAMjKEZTzrwhMq7cmN"
+      }
+  }
+  ).then((res)=>setSocialLinks(res.data.data))
+},[])
     const onFormLayoutChange = ({ size }) => {
       setComponentSize(size);
     };
@@ -60,20 +71,33 @@ import {
         :تابع الشيخ على
         </span>
         <div style={{width:"fit-content"}}>
+          <a href={socialLinks?.twitter} target='_blank'>
         <img src="/assets/images/twitter.png"/>
+          </a>
         </div>
         <div  style={{width:"fit-content"}}>
+          <a href={socialLinks?.facebook} target='_blank'>
         <img src="/assets/images/facebook.png"/>
+
+          </a>
         </div>
         <div  style={{width:"fit-content"}}>
-            <img src="/assets/images/instagram.png"/>
+          <a href={socialLinks?.instagram} target='_blank'>
+          <img src="/assets/images/instagram.png"/>
+          </a>
         </div>
         <div style={{width:"fit-content"}}>
-            <img src="/assets/images/youtube.png"/>
+          <a href={socialLinks?.youtube}>
+          <img src="/assets/images/youtube.png"/>
+
+          </a>
         </div>
        
         <div style={{width:"fit-content"}}>
-            <img src="/assets/images/sound.png"/>
+          <a href={socialLinks?.soundcloud} target="_blank">
+          <img src="/assets/images/sound.png"/>
+
+          </a>
         </div>
         {/* 
         

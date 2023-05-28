@@ -7,7 +7,7 @@ import ContactUs from "@/Components/ContactUs"
 import { Tabs } from 'antd';
 import { useRouter } from 'next/router';
 
-const ShiekhBio=()=>{
+const ShiekhBio=({shiekhbio})=>{
     const onChange = (key) => {
         console.log(key);
         Route.push(`/shiekh-bio/${key}`)
@@ -16,7 +16,7 @@ const ShiekhBio=()=>{
         {
           key: '1',
           label: `سيرة الشيخ`,
-          children: <SiekheContent />,
+          children: <SiekheContent shiekhbio={shiekhbio} />,
         },
         {
           key: '2',
@@ -35,3 +35,19 @@ return(
 )
 }
 export default ShiekhBio
+export async function getServerSideProps(){
+  const response =await fetch("https://saber.arabia-it.net/api/v1/biographies",{
+    headers:{
+        Authorization:"Bearer 5|bV0AD7zr7K68ewmFxfwzgOwAMjKEZTzrwhMq7cmN"
+    }
+  })
+  const data =await response.json()
+  console.log(data,"data")
+  // const response2=await fetch("https://estithmar.arabia-it.net/api/admin/service-provider-fields")
+  // const data2=await response2.json()
+  return{
+      props:{
+          shiekhbio:data,
+      }
+  }
+}
