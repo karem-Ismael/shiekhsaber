@@ -333,6 +333,10 @@ ul{
 .css-1q60rmi-MuiAutocomplete-endAdornment{
   left: 0 !important;
 }
+.css-1q60rmi-MuiAutocomplete-endAdornment{
+  left: 0 !important;
+  right: unset !important;
+}
 .ant-tabs-tab-btn{
   color:#919191 !important;
 }

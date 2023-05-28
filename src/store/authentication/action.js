@@ -37,18 +37,3 @@ export function LogOutAction() {
 }
 
 
-// export const HandelSignUp = (user,router) => (dispatch) => {
-//   axios.post("https://estithmar.arabia-it.net/api/auth/register",{...user}
-//  ).then(res=>{
-//   if(!res.data.errors){
-//   localStorage.setItem("user_id",JSON.stringify(res?.data?.data))
-//   localStorage.setItem("token",res.data?.data?.access_token)
-//   dispatch({ type: AUTH_DATA, payload: res?.data?.data });
-//   router.push('/');
-//   }else{
-//      // NotificationManager.error("");
-//      dispatch({ type: SIGNUP_USER_FAILURE ,payload:res.data.errors});
-//   }
-//  }).catch(err=>NotificationManager.error(err.message))
-
-// }

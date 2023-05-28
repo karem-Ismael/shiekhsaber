@@ -145,11 +145,7 @@ const Headercm = () => {
             </Link>
           </li>
 
-          <li className="">
-            <Link href={'/wakf-library'}>
-            المصحف
-            </Link>
-          </li>
+        
           <li className={router.pathname.includes("/support-developer") ? "active-item" : null}>
             <Link href={'/support-developer'}>
             خدمة المطورين
