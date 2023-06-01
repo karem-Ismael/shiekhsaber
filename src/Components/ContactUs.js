@@ -6,13 +6,15 @@ import {
     Input,
   } from 'antd';
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 axios.defaults.withCredentials = true
 
 const ContactUs =()=>{
     const { TextArea } = Input;
     const [data,setData]=useState({})
+    const [socialLinks,setSocialLinks]=useState()
+
     async function SendData () {
       await axios.get("http://saber.test/sanctum/csrf-cookie")
       await axios.post("http://saber.test/api/v1/technical-support", JSON.stringify(data), {
@@ -21,46 +23,66 @@ const ContactUs =()=>{
         }
       })
     }
+    useEffect(()=>{
+ 
+      axios.get("https://saber.arabia-it.net/api/v1/social-links",
+      {
+          headers:{
+              Authorization:"Bearer 5|bV0AD7zr7K68ewmFxfwzgOwAMjKEZTzrwhMq7cmN"
+          }
+      }
+      ).then((res)=>setSocialLinks(res.data.data))
+    },[])
     return(
     <Row gutter={[16,16]}>
             <Col md={12} sm-={24} xs={24}>
                 <div>
                     <CardComponent>
                         <div className="d-flex" style={{gap:"100px"}} >
-                            <img src="/assets/images/twitter.png" style={{maxHeight:"30px",maxWidth:"29px"}} />
-                            <span>
-                            صفحة الشيخ على تويتر
-                            </span>
+                        <a href={socialLinks?.twitter} target="_blank" >
+                              <img src="/assets/images/twitter.png" style={{maxHeight:"30px",maxWidth:"29px"}} />
+                              <span>
+                              صفحة الشيخ على تويتر
+                              </span>
+                          </a>
                         </div>
                     </CardComponent>
                 </div>
                 <div>
                     <CardComponent>
                     <div className="d-flex" style={{gap:"100px"}} >
+                            <a href={socialLinks?.facebook} target="_blank">
                             <img src="/assets/images/facebook.png" style={{maxHeight:"30px",maxWidth:"29px"}} />
                             <span>
-                            صفحة الشيخ على تويتر
+                            صفحة الشيخ على فيسبوك
                             </span>
+                            </a>
+                      </div>
+                    </CardComponent>
+                </div>
+                <div>
+                    <CardComponent>
+                    <div className="d-flex" style={{gap:"100px"}} >
+                      <a href={socialLinks?.twitter} target="_blank" >
+                          <img src="/assets/images/youtube.png" style={{maxHeight:"30px",maxWidth:"29px"}} />
+                            <span>
+                            صفحة الشيخ على انستجرام
+                            </span>
+                      </a>
+                           
                         </div>
                     </CardComponent>
                 </div>
                 <div>
                     <CardComponent>
                     <div className="d-flex" style={{gap:"100px"}} >
-                            <img src="/assets/images/youtube.png" style={{maxHeight:"30px",maxWidth:"29px"}} />
+                    <a href={socialLinks?.twitter} target="_blank" >
+                    <img src="/assets/images/youtube.png" style={{maxHeight:"30px",maxWidth:"29px"}} />
                             <span>
-                            صفحة الشيخ على تويتر
+                            صفحة الشيخ على يوتيوب
                             </span>
-                        </div>
-                    </CardComponent>
-                </div>
-                <div>
-                    <CardComponent>
-                    <div className="d-flex" style={{gap:"100px"}} >
-                            <img src="/assets/images/sound.png" style={{maxHeight:"30px",maxWidth:"29px"}} />
-                            <span>
-                            صفحة الشيخ على تويتر
-                            </span>
+                      </a>
+                            
                         </div>
                     </CardComponent>
                 </div>

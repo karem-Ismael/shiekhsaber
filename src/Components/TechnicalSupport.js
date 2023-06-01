@@ -4,11 +4,15 @@ import {
     Input,
   } from 'antd';
 import axios from 'axios';
+
   import { useEffect, useState } from 'react';
+axios.defaults.withCredentials = true
+
   const TechnicalSupport = () => {
     const [componentSize, setComponentSize] = useState('large');
     const { TextArea } = Input;
     const [socialLinks,setSocialLinks]=useState()
+    const [data,setData]=useState({})
 useEffect(()=>{
  
   axios.get("https://saber.arabia-it.net/api/v1/social-links",
@@ -22,6 +26,14 @@ useEffect(()=>{
     const onFormLayoutChange = ({ size }) => {
       setComponentSize(size);
     };
+    async function SendData () {
+      await axios.get("http://saber.test/sanctum/csrf-cookie")
+      await axios.post("http://saber.test/api/v1/technical-support", JSON.stringify(data), {
+        headers: {
+          'Authorization': 'Bearer 7|9dvqZ4WwmTVVdY5QL0Q0WBWXrsEjRImNjmRT0CpF'
+        }
+      })
+    }
     return (
      <div className='container'>
         <div className='row justify-content-center'>
@@ -50,18 +62,18 @@ useEffect(()=>{
       >
         
         <Form.Item>
-          <Input placeholder='الاسم'/>
+          <Input placeholder='الاسم' onChange={(e)=>setData({...data,name:e.target.value})}/>
         </Form.Item>
         <Form.Item>
-          <Input  placeholder='البريد الإلكتروني'/>
+          <Input  placeholder='البريد الإلكتروني' onChange={(e)=>setData({...data,email:e.target.value})}/>
         </Form.Item>
        
         
         <Form.Item>
-            <TextArea rows={4} placeholder='نص الرسالة'/>   
+            <TextArea rows={4} placeholder='نص الرسالة' onChange={(e)=>setData({...data,message:e.target.value})} />   
         </Form.Item>
         <div className='text-center'>
-        <Button style={{color:"#fff",background:"#268168",minWidth:"120px",border:"none",borderRadius:"0px"}}>
+        <Button onClick={()=>SendData()} style={{color:"#fff",background:"#268168",minWidth:"120px",border:"none",borderRadius:"0px"}}>
             أرسل       
         </Button>
         </div>
