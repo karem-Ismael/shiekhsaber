@@ -1,20 +1,17 @@
 import { Button, Col, Row } from "antd"
 import { Tabs } from 'antd';
 import APIComponent from "./APIComponent";
+import { useRouter } from "next/router";
 
 const SupportDeveloperComponent =()=>{
+  const route=useRouter()
     const items = [
         {
           key: '1',
           label: `تضمين API`,
           children: <APIComponent /> ,
         },
-        {
-          key: '2',
-          label: ` إدراج widgets`,
-          children: "karem 1",
-        },
-       
+        
       ];    
       const onChange = (key) => {
         console.log(key);
@@ -27,8 +24,11 @@ return(
             </p>
         </div>
         <div className="text-center" style={{transform:"translateY(-20px)"}}>
-            <Button shape="round" size="large" color="#fff" style={{background:"#C9AB7A",color:"#fff"}}>
-            تسجيل الدخول
+            <Button 
+            onClick={()=> route.push("/login")}
+            shape="round" size="large" color="#fff" 
+            style={{background:"#C9AB7A",color:"#fff"}}>
+              تسجيل الدخول
             </Button>
         </div>
         <div>
