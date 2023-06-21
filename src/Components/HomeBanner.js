@@ -1,4 +1,5 @@
 import { Button, Divider, Radio, Space } from 'antd';
+import { useRouter } from 'next/router';
 const contentStyle = {
     minHeight: 120,
     lineHeight: '30px',
@@ -10,6 +11,7 @@ const contentStyle = {
     minHeight:"84vh"
   };
 const HomeBanner =()=>{
+    const router =useRouter()
 return(
     <div style={contentStyle}>
         <div className="container">
@@ -25,8 +27,8 @@ return(
                 <p style={{maxWidth:"400px" ,textAlign:"justify",color:"#111A22"}}>
                 صابر محمد عبد الحكم سليمان، أحد المشايخ الذين سخروا حياتهم لتزيين القرآن بأصواتهم الخاشعة، رغم توجهاتهم الدراسية البعيدة عن الشريعة وعلوم ا
                 </p>
-                <Button shape="round" style={{background:"#C9AB7A",color:"#fff"}} size='large' icon={<img src="/assets/images/ic_pen.png" height={19}  />}>
-                    
+                <Button onClick={()=>router.push("/shiekh-bio/1")} shape="round" style={{background:"#C9AB7A",color:"#fff",padding:"0px 40px"}} size='large' icon={<img src="/assets/images/ic_pen.png" height={19}  style={{marginLeft:"10px"}}/>}>
+                    {"                              "}
                 سيرة الشيخ      
                 </Button>
               

@@ -54,14 +54,7 @@ const Nav = styled.div`
         @media (min-width: 961px) {
           display: flex;
           position: relative;
-          &:after {
-            content: "";
-            width: 100%;
-            height: 2px;
-            position: absolute;
-            left: 0;
-            background: orange;
-          }
+          
         }
       }
     }
@@ -129,7 +122,7 @@ const Headercm = () => {
         </Col>
       }  
       <Col lg={8} md={15} sm={15} xs={15} style={{height:"100%",textAlign:"right"}} className="text-right">
-        <img src="/assets/images/mainlogo.png" height={"100%"} />
+        <img src="/assets/images/mainlogo.png" height={"100%"} onClick={()=>router.push("/")} />
       </Col>
       <Col lg={16} style={{display: screens.lg || screens.xl  ? "" : "none",alignSelf:"center"}}>
         <Nav>

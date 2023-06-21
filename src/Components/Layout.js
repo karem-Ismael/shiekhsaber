@@ -10,13 +10,14 @@ const headerStyle = {
   textAlign: 'left',
   gap:"15px",
   color: '#fff',
-  background:"#FFFFFF",
+  background:"#F8F8F8" ,
   height: 109,
   paddingInline: 60,
   lineHeight: '64px',
 };
 const contentStyle = {
   minHeight: 520,
+  background:"#fff",
 };
 const HeaderImages={
   gap:"15px",
@@ -71,7 +72,7 @@ const LayoutComponent =({children})=>{
         جميع الحقوق محفوظة 2022 - 1444 موقع صابر عبد الحكم
         </div>
         <div>
-        مُشغَل بواسطة صلصال
+         مُشغَل بواسطة صلصال -احدي منتجات الدار العربية
         </div>
       </Footer>
     </Layout>

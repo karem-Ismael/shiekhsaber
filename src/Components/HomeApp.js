@@ -23,22 +23,23 @@ return(
                     <p style={{color:"#fff",maxWidth:"250px",lineHeight:2.7,fontSize:"20px"}}>
                     ساهم معنا في نشر التطبيق فالدال على الخير كفاعله
                     </p>
-                    <div className='d-flex ' style={{gap:"10px"}} >
+                    <div className='d-flex applinks ' style={{gap:"10px"}} >
                         <div>
                             <img src="/assets/images/AppGallery.png"/>
                         </div>
                         <div>
-                            <img src="/assets/images/AppGallery.png"/>
+                            <img src="/assets/images/Gplay.png"/>
                         </div>
                         <div>
-                            <img src="/assets/images/AppGallery.png"/>
+                            <img src="/assets/images/appstore.png"/>
                         </div>
                     </div>
+                    
                     
                 </div>
                 <div style={{padding:"40px"}}>
                    
-                    <div className='d-flex ' style={{gap:"10px"}} >
+                    <div className='d-flex  ' style={{gap:"20px"}} >
                         <div style={{maxHeight:"170px"}}>
                             <img src="/assets/images/scrapp01.png" style={{maxHeight:"430px",transform:"translateY(-140px)",width:"100%"}}/>
                         </div>

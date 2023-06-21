@@ -1,4 +1,5 @@
 import { Button, Divider, Radio, Space } from 'antd';
+import { useRouter } from 'next/router';
 const contentStyle = {
     minHeight: 120,
     lineHeight: '30px',
@@ -10,6 +11,7 @@ const contentStyle = {
     minHeight:"64vh"
   };
 const HomeDeveloper =()=>{
+    const router =useRouter()
 return(
     <div style={contentStyle}>
         <div className="container">
@@ -19,7 +21,7 @@ return(
             <p style={{color:"#fff",textAlign:"justify",maxWidth:"350px"}}>
             خدمة موجهة للمطورين وأصحاب المواقع تُمكنهم من بناء مواقعهم وتطبيقات الجوال الخاصة بهم بسرعة ودون الحاجة إلى توفير فرق عمل للإضافة وإدارة الموقع حيث يمكن التعامل معها من خلال أي لغة برمجية بسهولة ويسر
             </p>
-            <Button shape="round" style={{background:"#C9AB7A",color:"#fff"}} size='large' icon={<img src="/assets/images/ic_dev.png" height={19} style={{marginLeft:"10px"}} />}>
+            <Button onClick={()=>router.push("/support-developer")} shape="round" style={{background:"#C9AB7A",color:"#fff"}} size='large' icon={<img src="/assets/images/ic_dev.png" height={19} style={{marginLeft:"10px"}} />}>
             سجل واستمتع بالخدمة
             </Button>
         </div>

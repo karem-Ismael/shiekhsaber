@@ -38,58 +38,69 @@ const ContactUs =()=>{
             <Col md={12} sm-={24} xs={24}>
                 <div>
                     <CardComponent>
-                        <div className="d-flex" style={{gap:"100px"}} >
-                        <a href={socialLinks?.twitter} target="_blank" >
+                        <div className="d-flex" style={{gap:"100px",color:"#111A22",fontWeight:"bold"}} >
+                        {/* <a href={socialLinks?.twitter} target="_blank" > */}
                               <img src="/assets/images/twitter.png" style={{maxHeight:"30px",maxWidth:"29px"}} />
                               <span>
                               صفحة الشيخ على تويتر
                               </span>
-                          </a>
+                          {/* </a> */}
                         </div>
                     </CardComponent>
                 </div>
                 <div>
                     <CardComponent>
-                    <div className="d-flex" style={{gap:"100px"}} >
-                            <a href={socialLinks?.facebook} target="_blank">
+                    <div className="d-flex" style={{gap:"100px",color:"#111A22",fontWeight:"bold"}} >
+                            {/* <a href={socialLinks?.facebook} target="_blank"> */}
                             <img src="/assets/images/facebook.png" style={{maxHeight:"30px",maxWidth:"29px"}} />
                             <span>
                             صفحة الشيخ على فيسبوك
                             </span>
-                            </a>
+                            {/* </a> */}
                       </div>
                     </CardComponent>
                 </div>
                 <div>
                     <CardComponent>
-                    <div className="d-flex" style={{gap:"100px"}} >
-                      <a href={socialLinks?.twitter} target="_blank" >
-                          <img src="/assets/images/youtube.png" style={{maxHeight:"30px",maxWidth:"29px"}} />
+                    <div className="d-flex" style={{gap:"100px",color:"#111A22",fontWeight:"bold"}} >
+                      {/* <a href={socialLinks?.twitter} target="_blank" > */}
+                          <img src="/assets/images/instagram.png" style={{maxHeight:"30px",maxWidth:"29px"}} />
                             <span>
                             صفحة الشيخ على انستجرام
                             </span>
-                      </a>
+                      {/* </a> */}
                            
                         </div>
                     </CardComponent>
                 </div>
                 <div>
                     <CardComponent>
-                    <div className="d-flex" style={{gap:"100px"}} >
-                    <a href={socialLinks?.twitter} target="_blank" >
+                    <div className="d-flex" style={{gap:"100px",color:"#111A22",fontWeight:"bold"}} >
+                    {/* <a href={socialLinks?.twitter} target="_blank" > */}
                     <img src="/assets/images/youtube.png" style={{maxHeight:"30px",maxWidth:"29px"}} />
                             <span>
                             صفحة الشيخ على يوتيوب
                             </span>
-                      </a>
+                      {/* </a> */}
                             
                         </div>
                     </CardComponent>
                 </div>
-                
+                <div>
+                    <CardComponent>
+                        <div className="d-flex" style={{gap:"100px",color:"#111A22",fontWeight:"bold"}} >
+                        {/* <a href={socialLinks?.twitter} target="_blank" > */}
+                              <img src="/assets/images/sound.png" style={{maxHeight:"30px",maxWidth:"29px"}} />
+                              <span>
+                              صفحة الشيخ على ساوند كلاود
+                              </span>
+                          {/* </a> */}
+                        </div>
+                    </CardComponent>
+                </div>
               
             </Col>
-            <Col md={12} sm-={24} xs={24}>
+            <Col md={12} sm-={24} xs={24} >
             <Form
         style={{textAlign:"center"}}
         labelCol={{
@@ -108,19 +119,19 @@ const ContactUs =()=>{
         }}
       >
         
-        <Form.Item>
-          <Input placeholder='الاسم' onChange={(e)=>setData({...data,name:e.target.value})}/>
+        <Form.Item className="mb-3">
+          <Input  className="mb-3" placeholder='الاسم' onChange={(e)=>setData({...data,name:e.target.value})}/>
         </Form.Item>
         <Form.Item>
-          <Input  placeholder='البريد الإلكتروني' onChange={(e)=>setData({...data,email:e.target.value})}/>
+          <Input className="mb-3" placeholder='البريد الإلكتروني' onChange={(e)=>setData({...data,email:e.target.value})}/>
         </Form.Item>
        
         
         <Form.Item>
-            <TextArea rows={4} placeholder='نص الرسالة' onChange={(e)=>setData({...data,message:e.target.value})}/>   
+            <TextArea className="mb-3" rows={4} placeholder='نص الرسالة' onChange={(e)=>setData({...data,message:e.target.value})}/>   
         </Form.Item>
         <div style={{textAlign:"left"}}>
-        <Button onClick={()=>SendData()} style={{color:"#fff",background:"#268168",minWidth:"120px",border:"none",borderRadius:"0px"}}>
+        <Button className="mb-3" onClick={()=>SendData()} style={{color:"#fff",background:"#268168",minWidth:"120px",border:"none",borderRadius:"0px"}}>
             أرسل       
         </Button>
         </div>

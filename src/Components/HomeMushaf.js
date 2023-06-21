@@ -17,6 +17,7 @@ const HomeMushaf = () => {
     const [sounds,setSounds]=useState()
     const [audioFile,setAudio]=useState()
     const dispatch=useDispatch()
+    const [GroupdedValue,setGroupedValue]=useState({name: 'مصحف حفص بالتوسط', groupedname: 'حفص', id: '2fe2fc5c-41c9-11ed-9db5-0800270c4f5c'})
     useEffect(()=>{
         axios.get("https://saber.arabia-it.net/api/v1/categories",
         {
@@ -35,10 +36,11 @@ const HomeMushaf = () => {
             console.log(res,"res")
         }
         )
-        // const response =await fetch("https://saber.arabia-it.net/api/v1/categories")
-        // const data =await response.json()
+        getSound(GroupdedValue)
     },[])
     const getSound=(value)=>{
+        console.log(value,"karem")
+        setGroupedValue(value)
         // {{production_url}}/subcategories/sounds?category=2fe2fc5c-41c9-11ed-9db5-0800270c4f5c
         axios.get(`https://saber.arabia-it.net/api/v1/subcategories/sounds?category=${value?.id}`,
         {
@@ -49,10 +51,13 @@ const HomeMushaf = () => {
         ).then((res)=>
         {
             const AllSound=res.data.data.map((sound)=>({
-                label:sound.surah.search_text,
+                label:sound.surah.spell_name,
                 value:sound.file
             }))
             setSounds(AllSound)
+            console.log(AllSound[0],"sound k11")
+            SelectSound(AllSound[0].value)
+        
         }
         
         )
@@ -60,6 +65,7 @@ const HomeMushaf = () => {
     const SelectSound=(val)=>{
         dispatch(SetLoader())
         setTimeout(()=>{
+            console.log(val,"k1")
             dispatch(SetFileAudio(val))
 
         },300)
@@ -97,32 +103,47 @@ const HomeMushaf = () => {
 
                     options={[]}
                 /> */}
-                 <Autocomplete
+                {
+                    categories && categories?.length ? 
+                    <Autocomplete
       id="grouped-demo"
       options={categories}
       groupBy={(option) => option.groupedname}
       getOptionLabel={(option,index) =>option.name}
       sx={{ width: 300 }}
-      renderInput={(params) => <TextField {...params} label=""  variant="standard"/>}
+      value={categories?.find((opt)=>opt.id ==GroupdedValue.id)}
+      renderInput={(params) => <TextField {...params} label=""  variant="outlined"/>}
       onChange={(e,val)=>getSound(val)}
     />
+    :null
+                }
+                 
             </div>
             <Row  classNmae="mt-2" style={{gap:"10px",marginTop:"10px"}}>
         
                 <Col>
+                {
+                    sounds && sounds.length ? 
                     <Select
                         size='large'
                         className="round-select"
                         style={{ minWidth: "200px" }}
                         showSearch
-                        placeholder="عرض الكل"
+                        
                         optionFilterProp="children"
                         bordered
                         id="first-select"
-                        onChange={(val)=>SelectSound(val)}
-                     
+                        onChange={(val)=>{
+                            console.log(val,"kok")
+                            SelectSound(val)
+                        }}
+                        // value={}
+                        defaultValue={sounds?.[0]}
                         options={sounds}
                     />
+                    :null
+                }
+                    
                 </Col>
      
             </Row>

@@ -78,36 +78,36 @@ useEffect(()=>{
         </Button>
         </div>
       </Form>
-      <div className='row justify-content-center mt-5' style={{gap:"20px"}}>
+      <div className='row justify-content-center mt-5 mb-2' style={{gap:"20px"}}>
         <span style={{width:"fit-content" ,alignSelf:"center",color:"#919191"}}>
-        :تابع الشيخ على
+       تابع الشيخ على:
         </span>
         <div style={{width:"fit-content"}}>
           <a href={socialLinks?.twitter} target='_blank'>
-        <img src="/assets/images/twitter.png"/>
+        <img src="/assets/images/twitter.png" style={{width:"36px",height:"36px"}}/>
           </a>
         </div>
         <div  style={{width:"fit-content"}}>
           <a href={socialLinks?.facebook} target='_blank'>
-        <img src="/assets/images/facebook.png"/>
+        <img src="/assets/images/facebook.png" style={{width:"36px",height:"36px"}}/>
 
           </a>
         </div>
         <div  style={{width:"fit-content"}}>
           <a href={socialLinks?.instagram} target='_blank'>
-          <img src="/assets/images/instagram.png"/>
+          <img src="/assets/images/instagram.png" style={{width:"36px",height:"36px"}}/>
           </a>
         </div>
         <div style={{width:"fit-content"}}>
           <a href={socialLinks?.youtube}>
-          <img src="/assets/images/youtube.png"/>
+          <img src="/assets/images/youtube.png" style={{width:"36px",height:"36px"}}/>
 
           </a>
         </div>
        
         <div style={{width:"fit-content"}}>
           <a href={socialLinks?.soundcloud} target="_blank">
-          <img src="/assets/images/sound.png"/>
+          <img src="/assets/images/sound.png" style={{width:"36px",height:"36px"}}/>
 
           </a>
         </div>

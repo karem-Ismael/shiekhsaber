@@ -129,7 +129,9 @@ a {
     padding-right:15px;
     padding-left:15px
   }
+
 }
+
 @media (min-width: 992px){
   .container{
     padding-right:15px;
@@ -146,6 +148,7 @@ a {
   .container{
     width:100%
   }
+ 
 }
 @media (min-width: 768px){
   .container{
@@ -171,6 +174,13 @@ a {
     max-width:100%
   }
 }
+@media (max-width: 600px){
+  .applinks{
+    flex-direction: column;
+  }
+}
+
+
 ul{
   list-style-type: none;
 }
@@ -324,6 +334,14 @@ ul{
   color:#C9AB7A !important;
 
 }
+.MuiInputBase-root{
+  border-radius: 50px !important;
+    padding: 5px !important;
+    background: #C9AB7A !important;
+    color: #fff !important;
+    font-family: 'Light' !important;
+
+}
 .ant-tabs-nav-wrap{
   border-bottom: 1px solid #919191 !important;
 }
@@ -387,4 +405,10 @@ ul{
     display: block;
     /* right: 12px; */
     left: 31%;
+}
+.MuiSvgIcon-root{
+  color: #fff !important;
+}
+::placeholder {
+  font-family: "Light" !important;
 }

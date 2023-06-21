@@ -6,10 +6,10 @@ return(
         <Row gutter={[16,16]} style={{padding:"120px 0px"}}>
             <Col lg={16} md={16} sm={24} xs={24}>
                 <img src={"/assets/images/shpic.png" }/>
-                <h3>
+                <h3 className="mb-2">
                 تطبيق الشيخ
                 </h3>
-                <p style={{textAlign:"justify"}}>
+                <p style={{textAlign:"justify",lineHeight:3}}>
                     {AppData.data.about}
                 </p>
                 <p>
